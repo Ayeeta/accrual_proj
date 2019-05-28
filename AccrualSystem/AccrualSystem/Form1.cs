@@ -30,6 +30,7 @@ namespace AccrualSystem
             cmd.CommandText = "insert into employees values('"+txtEmployeeID.Text+"','"+txtEmployeeName.Text+"','"+date+"','"+cmbSeniority.Text+"', '"+num+"')";
             cmd.ExecuteNonQuery();
             conn.Close();
+            display();
 
             txtEmployeeID.Text = " ";
             txtEmployeeName.Text = " ";
@@ -37,9 +38,27 @@ namespace AccrualSystem
             
         }
 
+        public void display() {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select * from employees";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.Fill(dt);
+            dataGridView1.DataSource = dt;
+            conn.Close();  
+        }
+
         private void btnRefresh_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            display();
         }
     }
 }
