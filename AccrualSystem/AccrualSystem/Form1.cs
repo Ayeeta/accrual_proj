@@ -21,11 +21,13 @@ namespace AccrualSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            int num = 4;
+            int num = 0;
+           string date = dateStartDate.Value.ToShortDateString();
+           
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into employees values('"+txtEmployeeID.Text+"','"+txtEmployeeName.Text+"','"+dateStartDate.Text+"','"+cmbSeniority.Text+"', '"+num+"')";
+            cmd.CommandText = "insert into employees values('"+txtEmployeeID.Text+"','"+txtEmployeeName.Text+"','"+date+"','"+cmbSeniority.Text+"', '"+num+"')";
             cmd.ExecuteNonQuery();
             conn.Close();
 
@@ -33,6 +35,11 @@ namespace AccrualSystem
             txtEmployeeName.Text = " ";
             cmbSeniority.Text = " ";
             
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
