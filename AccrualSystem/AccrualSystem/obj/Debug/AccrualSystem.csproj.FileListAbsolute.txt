@@ -1,1 +1,9 @@
 C:\Users\USER\Documents\AccrualProject\accrual_proj\AccrualSystem\AccrualSystem\bin\Debug\AccrualSystem.exe.config
+C:\Users\USER\Documents\AccrualProject\accrual_proj\AccrualSystem\AccrualSystem\bin\Debug\AccrualSystem.exe
+C:\Users\USER\Documents\AccrualProject\accrual_proj\AccrualSystem\AccrualSystem\bin\Debug\AccrualSystem.pdb
+C:\Users\USER\Documents\AccrualProject\accrual_proj\AccrualSystem\AccrualSystem\obj\Debug\AccrualSystem.csprojResolveAssemblyReference.cache
+C:\Users\USER\Documents\AccrualProject\accrual_proj\AccrualSystem\AccrualSystem\obj\Debug\AccrualSystem.Form1.resources
+C:\Users\USER\Documents\AccrualProject\accrual_proj\AccrualSystem\AccrualSystem\obj\Debug\AccrualSystem.Properties.Resources.resources
+C:\Users\USER\Documents\AccrualProject\accrual_proj\AccrualSystem\AccrualSystem\obj\Debug\AccrualSystem.csproj.GenerateResource.Cache
+C:\Users\USER\Documents\AccrualProject\accrual_proj\AccrualSystem\AccrualSystem\obj\Debug\AccrualSystem.exe
+C:\Users\USER\Documents\AccrualProject\accrual_proj\AccrualSystem\AccrualSystem\obj\Debug\AccrualSystem.pdb
