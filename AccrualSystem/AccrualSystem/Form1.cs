@@ -14,6 +14,7 @@ namespace AccrualSystem
     public partial class Form1 : Form
     {
         SqlConnection conn = new SqlConnection(@"Data Source=DELL;Initial Catalog=AccrualDB;User ID=sa;Password=sap");
+        DataTable dt = new DataTable();
         public Form1()
         {
             InitializeComponent();
@@ -142,7 +143,7 @@ namespace AccrualSystem
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "Select Employee_ID, Employee_Name, Start_Date, Seniority, Points from employees";
             cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
+            
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -168,6 +169,16 @@ namespace AccrualSystem
                 //    string seniority = cell[].ColumnIndex.ToString();
                 //}
                 
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) 
+            {
+                DataView dv = dt.DefaultView;
+                dv.RowFilter = string.Format("Employee_ID like '%{0}%'", textBox1.Text);
+                dataGridView1.DataSource = dv.ToTable();
             }
         }
         
