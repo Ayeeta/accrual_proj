@@ -21,102 +21,118 @@ namespace AccrualSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-           
-            string seniority = cmbSeniority.Text;
-            double num = 0;
-            int lessThanTwoyears = 2;
-            double lessThanFourYears = 2.25;
-            double greaterThanFourYears = 2.5;
-
-
-            string date = dateStartDate.Value.ToShortDateString();
-            int startYear = Convert.ToInt32(dateStartDate.Value.Year.ToString());
-            int currentYear = Convert.ToInt32(DateTime.Now.Year.ToString());
-            int Currentmonth = Convert.ToInt32(DateTime.Now.Month.ToString());
-            int startMonth = Convert.ToInt32(dateStartDate.Value.Month);
-            int tenure = currentYear - startYear;
-
-            int months = ((currentYear - startYear) * 12) + Currentmonth - startMonth;
-
-            if (tenure <= 2)
+            if (string.IsNullOrWhiteSpace(txtEmployeeID.Text) && string.IsNullOrWhiteSpace(txtEmployeeName.Text) && string.IsNullOrWhiteSpace(cmbSeniority.Text))
             {
-                switch (seniority)
-                {
-                    
-                    case "A":                       
-                        num = lessThanTwoyears * 5 * Math.Abs(months);
-                        break;
-                    case "B":
-                        num = lessThanTwoyears * 10 * Math.Abs(months);
-                        break;
-                    case "C":
-                        num = lessThanTwoyears * 15 * Math.Abs(months);
-                        break;
-                    case "D":
-                        num = lessThanTwoyears * 20 * Math.Abs(months);
-                        break;
-                    case "E":
-                        num = lessThanTwoyears * 25 * Math.Abs(months);
-                        break;
-                }
-
-            }
-            else if (tenure > 2 && tenure <= 4)
-            {
-                switch (seniority)
-                {
-
-                    case "A":
-                        num = lessThanFourYears * 5 * Math.Abs(months);
-                        break;
-                    case "B":
-                        num = lessThanFourYears * 10 * Math.Abs(months);
-                        break;
-                    case "C":
-                        num = lessThanFourYears * 15 * Math.Abs(months);
-                        break;
-                    case "D":
-                        num = lessThanFourYears * 20 * Math.Abs(months);
-                        break;
-                    case "E":
-                        num = lessThanFourYears * 25 * Math.Abs(months);
-                        break;
-                }
+                MessageBox.Show(MessageBoxIcon.Exclamation + "Please enter details");
             }
             else 
             {
-                switch (seniority)
+                string seniority = cmbSeniority.Text;
+                double num = 0;
+                int lessThanTwoyears = 2;
+                double lessThanFourYears = 2.25;
+                double greaterThanFourYears = 2.5;
+
+
+                string date = dateStartDate.Value.ToShortDateString();
+                int startYear = Convert.ToInt32(dateStartDate.Value.Year.ToString());
+                int currentYear = Convert.ToInt32(DateTime.Now.Year.ToString());
+                int Currentmonth = Convert.ToInt32(DateTime.Now.Month.ToString());
+                int startMonth = Convert.ToInt32(dateStartDate.Value.Month);
+                int tenure = currentYear - startYear;
+
+                int months = ((currentYear - startYear) * 12) + Currentmonth - startMonth;
+
+                if (tenure <= 2)
                 {
+                    switch (seniority)
+                    {
 
-                    case "A":
-                        num = greaterThanFourYears * 5 * Math.Abs(months);
-                        break;
-                    case "B":
-                        num = greaterThanFourYears * 10 * Math.Abs(months);
-                        break;
-                    case "C":
-                        num = greaterThanFourYears * 15 * Math.Abs(months);
-                        break;
-                    case "D":
-                        num = greaterThanFourYears * 20 * Math.Abs(months);
-                        break;
-                    case "E":
-                        num = greaterThanFourYears * 25 * Math.Abs(months);
-                        break;
+                        case "A":
+                            num = lessThanTwoyears * 5 * Math.Abs(months);
+                            break;
+                        case "B":
+                            num = lessThanTwoyears * 10 * Math.Abs(months);
+                            break;
+                        case "C":
+                            num = lessThanTwoyears * 15 * Math.Abs(months);
+                            break;
+                        case "D":
+                            num = lessThanTwoyears * 20 * Math.Abs(months);
+                            break;
+                        case "E":
+                            num = lessThanTwoyears * 25 * Math.Abs(months);
+                            break;
+                    }
+
                 }
-            }
-           
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into employees values('"+txtEmployeeID.Text+"','"+txtEmployeeName.Text+"','"+date+"','"+seniority+"', '"+num+"')";
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            display();
+                else if (tenure > 2 && tenure <= 4)
+                {
+                    switch (seniority)
+                    {
 
-            txtEmployeeID.Text = " ";
-            txtEmployeeName.Text = " ";
-            cmbSeniority.Text = " ";
+                        case "A":
+                            num = lessThanFourYears * 5 * Math.Abs(months);
+                            break;
+                        case "B":
+                            num = lessThanFourYears * 10 * Math.Abs(months);
+                            break;
+                        case "C":
+                            num = lessThanFourYears * 15 * Math.Abs(months);
+                            break;
+                        case "D":
+                            num = lessThanFourYears * 20 * Math.Abs(months);
+                            break;
+                        case "E":
+                            num = lessThanFourYears * 25 * Math.Abs(months);
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (seniority)
+                    {
+
+                        case "A":
+                            num = greaterThanFourYears * 5 * Math.Abs(months);
+                            break;
+                        case "B":
+                            num = greaterThanFourYears * 10 * Math.Abs(months);
+                            break;
+                        case "C":
+                            num = greaterThanFourYears * 15 * Math.Abs(months);
+                            break;
+                        case "D":
+                            num = greaterThanFourYears * 20 * Math.Abs(months);
+                            break;
+                        case "E":
+                            num = greaterThanFourYears * 25 * Math.Abs(months);
+                            break;
+                    }
+                }
+                try 
+                {
+                    conn.Open();
+                    SqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "insert into employees values('" + txtEmployeeID.Text + "','" + txtEmployeeName.Text + "','" + date + "','" + seniority + "', '" + num + "')";
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    display();
+
+                    txtEmployeeID.Text = " ";
+                    txtEmployeeName.Text = " ";
+                    cmbSeniority.Text = " ";
+                }
+                catch (Exception ex) 
+                {
+                    MessageBox.Show(" "+ex);
+                }
+                
+
+                
+            }
+            
             
         }
 
@@ -124,7 +140,7 @@ namespace AccrualSystem
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "Select * from employees";
+            cmd.CommandText = "Select Employee_ID, Employee_Name, Start_Date, Seniority, Points from employees";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
