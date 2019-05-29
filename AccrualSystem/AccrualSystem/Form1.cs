@@ -23,7 +23,7 @@ namespace AccrualSystem
         {
             if (string.IsNullOrWhiteSpace(txtEmployeeID.Text) && string.IsNullOrWhiteSpace(txtEmployeeName.Text) && string.IsNullOrWhiteSpace(cmbSeniority.Text))
             {
-                MessageBox.Show(MessageBoxIcon.Exclamation + "Please enter details");
+                MessageBox.Show("Please enter details");
             }
             else 
             {
@@ -126,7 +126,7 @@ namespace AccrualSystem
                 }
                 catch (Exception ex) 
                 {
-                    MessageBox.Show(" "+ex);
+                    MessageBox.Show(" "+ex.Message);
                 }
                 
 
