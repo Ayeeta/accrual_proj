@@ -21,13 +21,104 @@ namespace AccrualSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            int num = 0;
-           string date = dateStartDate.Value.ToShortDateString();
+           
+            string seniority = cmbSeniority.Text;
+            double num = 0;
+            int lessThanTwoyears = 2;
+            double lessThanFourYears = 2.25;
+            double greaterThanFourYears = 2.5;
+
+           // int Currentyear = Convert.ToInt32(DateTime.Now.Year.ToString());
+            //string day = DateTime.Now.Day.ToString();
+           // int Currentmonth = Convert.ToInt32(DateTime.Now.Month.ToString());
+
+            //int startYear = Convert.ToInt32(dateStartDate.Value.Year);
+           // int startMonth = Convert.ToInt32(dateStartDate.Value.Month);
+
+
+           // int months = ((Currentyear - startYear) * 12) + Currentmonth - startMonth;
+
+            string date = dateStartDate.Value.ToShortDateString();
+            int startYear = Convert.ToInt32(dateStartDate.Value.Year.ToString());
+            int currentYear = Convert.ToInt32(DateTime.Now.Year.ToString());
+            int Currentmonth = Convert.ToInt32(DateTime.Now.Month.ToString());
+            int startMonth = Convert.ToInt32(dateStartDate.Value.Month);
+            int tenure = currentYear - startYear;
+
+            int months = ((currentYear - startYear) * 12) + Currentmonth - startMonth;
+
+            if (tenure <= 2)
+            {
+                switch (seniority)
+                {
+                    
+                    case "A":                       
+                        num = lessThanTwoyears * 5 * Math.Abs(months);
+                        break;
+                    case "B":
+                        num = lessThanTwoyears * 10 * Math.Abs(months);
+                        break;
+                    case "C":
+                        num = lessThanTwoyears * 15 * Math.Abs(months);
+                        break;
+                    case "D":
+                        num = lessThanTwoyears * 20 * Math.Abs(months);
+                        break;
+                    case "E":
+                        num = lessThanTwoyears * 25 * Math.Abs(months);
+                        break;
+                }
+
+            }
+            else if (tenure > 2 && tenure <= 4)
+            {
+                switch (seniority)
+                {
+
+                    case "A":
+                        num = lessThanFourYears * 5 * Math.Abs(months);
+                        break;
+                    case "B":
+                        num = lessThanFourYears * 10 * Math.Abs(months);
+                        break;
+                    case "C":
+                        num = lessThanFourYears * 15 * Math.Abs(months);
+                        break;
+                    case "D":
+                        num = lessThanFourYears * 20 * Math.Abs(months);
+                        break;
+                    case "E":
+                        num = lessThanFourYears * 25 * Math.Abs(months);
+                        break;
+                }
+            }
+            else 
+            {
+                switch (seniority)
+                {
+
+                    case "A":
+                        num = greaterThanFourYears * 5 * Math.Abs(months);
+                        break;
+                    case "B":
+                        num = greaterThanFourYears * 10 * Math.Abs(months);
+                        break;
+                    case "C":
+                        num = greaterThanFourYears * 15 * Math.Abs(months);
+                        break;
+                    case "D":
+                        num = greaterThanFourYears * 20 * Math.Abs(months);
+                        break;
+                    case "E":
+                        num = greaterThanFourYears * 25 * Math.Abs(months);
+                        break;
+                }
+            }
            
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into employees values('"+txtEmployeeID.Text+"','"+txtEmployeeName.Text+"','"+date+"','"+cmbSeniority.Text+"', '"+num+"')";
+            cmd.CommandText = "insert into employees values('"+txtEmployeeID.Text+"','"+txtEmployeeName.Text+"','"+date+"','"+seniority+"', '"+num+"')";
             cmd.ExecuteNonQuery();
             conn.Close();
             display();
@@ -53,12 +144,36 @@ namespace AccrualSystem
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            int Currentyear =Convert.ToInt32(DateTime.Now.Year.ToString());
+            string day = DateTime.Now.Day.ToString();
+            int Currentmonth = Convert.ToInt32(DateTime.Now.Month.ToString());
 
+            int startYear = Convert.ToInt32(dateStartDate.Value.Year);
+            int startMonth = Convert.ToInt32(dateStartDate.Value.Month);
+
+
+            int months = ((Currentyear - startYear) * 12) + Currentmonth - startMonth;
+            //if(day != "1")
+            //int year_result = DateTime.Now.AddYears(year);
+            MessageBox.Show(months.ToString());
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             display();
         }
+
+        public void points()
+        {
+            foreach (DataGridViewRow dgvr in dataGridView1.Rows)
+            {
+                //foreach (DataGridViewCell cell in dgvr.Cells)
+                //{
+                //    string seniority = cell[].ColumnIndex.ToString();
+                //}
+                
+            }
+        }
+        
     }
 }
