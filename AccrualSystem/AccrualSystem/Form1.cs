@@ -18,7 +18,28 @@ namespace AccrualSystem
         public Form1()
         {
             InitializeComponent();
+           // AutoCompleteTxtBox();
         }
+
+        //void AutoCompleteTxtBox() 
+        //{
+        //    textBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+        //    textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        //    AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+
+        //    conn.Open();
+        //    SqlCommand cmd = new SqlCommand();
+        //    cmd.Connection = conn;
+        //    cmd.CommandText = "select * from employees";
+        //    SqlDataReader dataReader = cmd.ExecuteReader();
+        //    while (dataReader.Read()) 
+        //    {
+        //        string empID = dataReader["Employee_ID"].ToString();
+        //        coll.Add(empID);
+        //    }
+        //    textBox1.AutoCompleteCustomSource = coll;
+        //    conn.Close();
+        //}
 
         private void btnSave_Click(object sender, EventArgs e)
         {
