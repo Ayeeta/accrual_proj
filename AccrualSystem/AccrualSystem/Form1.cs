@@ -28,15 +28,6 @@ namespace AccrualSystem
             double lessThanFourYears = 2.25;
             double greaterThanFourYears = 2.5;
 
-           // int Currentyear = Convert.ToInt32(DateTime.Now.Year.ToString());
-            //string day = DateTime.Now.Day.ToString();
-           // int Currentmonth = Convert.ToInt32(DateTime.Now.Month.ToString());
-
-            //int startYear = Convert.ToInt32(dateStartDate.Value.Year);
-           // int startMonth = Convert.ToInt32(dateStartDate.Value.Month);
-
-
-           // int months = ((Currentyear - startYear) * 12) + Currentmonth - startMonth;
 
             string date = dateStartDate.Value.ToShortDateString();
             int startYear = Convert.ToInt32(dateStartDate.Value.Year.ToString());
@@ -144,18 +135,7 @@ namespace AccrualSystem
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            int Currentyear =Convert.ToInt32(DateTime.Now.Year.ToString());
-            string day = DateTime.Now.Day.ToString();
-            int Currentmonth = Convert.ToInt32(DateTime.Now.Month.ToString());
 
-            int startYear = Convert.ToInt32(dateStartDate.Value.Year);
-            int startMonth = Convert.ToInt32(dateStartDate.Value.Month);
-
-
-            int months = ((Currentyear - startYear) * 12) + Currentmonth - startMonth;
-            //if(day != "1")
-            //int year_result = DateTime.Now.AddYears(year);
-            MessageBox.Show(months.ToString());
         }
 
         private void Form1_Load(object sender, EventArgs e)
