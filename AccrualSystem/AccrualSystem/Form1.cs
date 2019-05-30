@@ -14,7 +14,7 @@ namespace AccrualSystem
     public partial class Form1 : Form
     {
         SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=AccrualDB;User ID=sa;Password=sap");
-       // DataTable dt = new DataTable();
+      
         public Form1()
         {
             InitializeComponent();
@@ -168,10 +168,10 @@ namespace AccrualSystem
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
-            //dataGridView1.Refresh();
+         
             conn.Close();
 
-            //dataGridView1.Update();
+          
           
         }
 
@@ -205,11 +205,11 @@ namespace AccrualSystem
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
-            //dataGridView1.Refresh();
+            
             conn.Close();
             if (e.KeyChar == (char)13) 
             {
-                //DataTable dt = new DataTable();
+                
                 DataView dv = dt.DefaultView;
                 dv.RowFilter = string.Format("Employee_ID like '%{0}%'", textBox1.Text);
                 dataGridView1.DataSource = dv.ToTable();
@@ -219,7 +219,7 @@ namespace AccrualSystem
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             display();
-            //dataGridView1.Refresh();
+            
             textBox1.Text = " ";
         }
         
