@@ -29,5 +29,7 @@ The desktop application calculates the number of accrued points from employee st
 * C# 
 * SQL
 
+**Please note the rest of the folders are random projects labeled with Question_ e.g: QuestionThreee**
+
 #### Author
 Elijah Ayeeta
