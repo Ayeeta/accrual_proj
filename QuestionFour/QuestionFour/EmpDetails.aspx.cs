@@ -30,12 +30,8 @@ namespace QuestionFour
             SqlCommand cmd = new SqlCommand("insert into emps values('" + txtEmpName.Text + "','" + txtEmpDep.Text + "','" + txtEmpSalary.Text + "')", conn);
             
             cmd.ExecuteNonQuery();
-            
-            
-           // DataTable dt = new DataTable();
-           // SqlDataAdapter da = new SqlDataAdapter(cmd);
-          //  da.Fill(dt);
-            //GridView1.DataSource = dt;
+                      
+           
             GridView1.DataBind();
             conn.Close();
 
