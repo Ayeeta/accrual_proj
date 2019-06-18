@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace QuestionFour
 {
@@ -30,7 +31,14 @@ namespace QuestionFour
             
             cmd.ExecuteNonQuery();
             
+            
+           // DataTable dt = new DataTable();
+           // SqlDataAdapter da = new SqlDataAdapter(cmd);
+          //  da.Fill(dt);
+            //GridView1.DataSource = dt;
+            GridView1.DataBind();
             conn.Close();
+
             txtEmpDep.Text = txtEmpName.Text = txtEmpSalary.Text = "";
         }
     }
