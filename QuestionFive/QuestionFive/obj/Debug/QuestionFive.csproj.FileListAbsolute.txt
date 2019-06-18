@@ -1,0 +1,5 @@
+C:\Users\USER\Documents\AccrualProject\accrual_proj\QuestionFive\QuestionFive\bin\QuestionFive.dll
+C:\Users\USER\Documents\AccrualProject\accrual_proj\QuestionFive\QuestionFive\bin\QuestionFive.pdb
+C:\Users\USER\Documents\AccrualProject\accrual_proj\QuestionFive\QuestionFive\obj\Debug\QuestionFive.csprojResolveAssemblyReference.cache
+C:\Users\USER\Documents\AccrualProject\accrual_proj\QuestionFive\QuestionFive\obj\Debug\QuestionFive.dll
+C:\Users\USER\Documents\AccrualProject\accrual_proj\QuestionFive\QuestionFive\obj\Debug\QuestionFive.pdb
