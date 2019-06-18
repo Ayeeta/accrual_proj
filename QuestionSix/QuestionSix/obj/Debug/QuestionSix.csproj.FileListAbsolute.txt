@@ -1,0 +1,4 @@
+C:\Users\USER\Documents\AccrualProject\accrual_proj\QuestionSix\QuestionSix\bin\QuestionSix.dll
+C:\Users\USER\Documents\AccrualProject\accrual_proj\QuestionSix\QuestionSix\bin\QuestionSix.pdb
+C:\Users\USER\Documents\AccrualProject\accrual_proj\QuestionSix\QuestionSix\obj\Debug\QuestionSix.dll
+C:\Users\USER\Documents\AccrualProject\accrual_proj\QuestionSix\QuestionSix\obj\Debug\QuestionSix.pdb
