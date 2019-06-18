@@ -14,9 +14,9 @@
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField DataField="empid" HeaderText="empid" SortExpression="empid" InsertVisible="False" ReadOnly="True" Visible="False" />
-                <asp:BoundField DataField="DeptId" HeaderText="DeptId" SortExpression="DeptId" />
+                <asp:BoundField DataField="DeptId" HeaderText="Department ID" SortExpression="DeptId" />
                 <asp:BoundField DataField="DeptName" HeaderText="DeptName" SortExpression="DeptName" Visible="False" />
-                <asp:BoundField DataField="EmpName" HeaderText="EmpName" SortExpression="EmpName" />
+                <asp:BoundField DataField="EmpName" HeaderText="Employee Name" SortExpression="EmpName" />
                 <asp:BoundField DataField="Salary" HeaderText="Salary" SortExpression="Salary" Visible="False" />
             </Columns>
             <EditRowStyle BackColor="#999999" />
